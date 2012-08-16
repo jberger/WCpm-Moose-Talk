@@ -1,0 +1,91 @@
+\documentclass[mathserif]{beamer}
+
+\usetheme[secheader]{Madrid}
+\setbeamercovered{transparent=50}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{url}
+
+\usepackage{pygments}
+\usepackage{graphicx}
+
+\providecommand{\code}[1]{{\texttt{\scriptsize{#1}}}}
+\providecommand{\inputcode}[1]{
+  \begin{block}{}
+    \scriptsize{\input{#1}}
+  \end{block}
+}
+
+\title[Real World Moose]{Signatures, Moose, and MooseX::Declare\\For Real World Applications}
+\author{Joel Berger}
+\institute[UIC]{University of Illinois at Chicago}
+\date{August 23, 2012}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\AtBeginSection{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\section{Introduction}
+
+\begin{frame}{Introduction}
+  
+\end{frame}
+
+\section{\code{Method::Signatures}}
+
+\begin{frame}{Introducing \texttt{Method::Signatures}}
+
+A simple method \ldots
+
+\vfill
+
+\begin{columns}
+  \begin{column}{0.49\linewidth}
+    The old way:
+    \inputcode{signatures/old}
+  \end{column}
+  \begin{column}{0.49\linewidth}
+    The new way:
+    \inputcode{signatures/new}
+  \end{column}
+\end{columns}
+\end{frame}
+
+\begin{frame}{More Fun}
+  \inputcode{signatures/more}
+\end{frame}
+
+\section{\code{Moose}}
+
+\begin{frame}{\code{Moose}}
+
+\end{frame}
+
+\section{\code{MooseX::Declare}}
+
+\begin{frame}{\code{MooseX::Declare}}
+
+\end{frame}
+
+\section{My Research}
+
+\begin{frame}{My Research}
+  \begin{block}{}
+    To be continued \ldots
+  \end{block}
+\end{frame}
+
+\end{document}
