@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{package} \PY{n}{Soldier}\PY{p}{;}
+
+\PY{k}{use} \PY{n}{Moose}\PY{p}{;}
+\PY{n}{extends} \PY{l+s}{'Person'}\PY{p}{;}
+
+\PY{n}{has} \PY{l+s}{'+name'}  \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{default} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Gomer Pyle'} \PY{p}{)}\PY{p}{;}
+\PY{n}{has} \PY{l+s}{'serial'} \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Num'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'ro'}\PY{p}{,} \PY{n}{required} \PY{o}{=}\PY{o}{>} \PY{l+m+mi}{1} \PY{p}{)}\PY{p}{;}
+
+\PY{n}{after} \PY{l+s}{'info'} \PY{o}{=}\PY{o}{>} \PY{k}{sub }\PY{p}{\PYZob{}}
+  \PY{k}{my} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self} \PY{o}{=} \PY{n+nb}{shift}\PY{p}{;}
+  \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{speak}\PY{p}{(} \PY{l+s}{'My serial number is '} \PY{o}{.} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{serial} \PY{p}{)}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+
+\PY{l+m+mi}{1}\PY{p}{;}
+\end{Verbatim}

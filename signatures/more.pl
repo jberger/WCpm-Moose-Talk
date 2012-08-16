@@ -7,11 +7,11 @@ method simple (@_) {
 method with_names ($positional, :$name) {
   $self->do_somthing($positional, $name);
 }
-$obj->with_name('foo', name => 'bar');
+$obj->with_names('foo', name => 'bar');
 
 # optional arguments (must be at end)
 method with_optional ($required, $optional?) {
-  say $required if $optional;
+  say $required if defined $optional;
 }
 
 # ... and may have default values

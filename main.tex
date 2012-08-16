@@ -4,7 +4,7 @@
 \setbeamercovered{transparent=50}
 
 \usepackage{tikz}
-\usetikzlibrary{calc}
+\usetikzlibrary{trees}
 \usepackage{url}
 
 \usepackage{pygments}
@@ -70,13 +70,75 @@ A simple method \ldots
 
 \section{\code{Moose}}
 
-\begin{frame}{\code{Moose}}
+\begin{frame}{\texttt{Moose}}
+  Like \code{Method::Signatures}, \code{Moose} makes object oriented code easier
+  \inputcode{moose/person}
+\end{frame}
 
+\begin{frame}{Extending}
+  \begin{itemize}
+    \item Setup parent class using \code{extends}
+    \item Modify attributes using \code{+} before name
+    \item Modify methods using \code{before}, \code{after}, \code{override}, (\code{around}, \code{augment})
+  \end{itemize}
+
+  \inputcode{moose/soldier}
+\end{frame}
+
+\begin{frame}{Types}
+  \begin{tikzpicture}
+  \scriptsize
+  \node {Types}[
+      every node/.style={draw},
+      grow via three points={
+        one child at (1.8,0) and 
+        two children at (1.8,0.3) and (1.8,-0.3)
+      },
+      edge from parent path={
+        (\tikzparentnode.east) -- (\tikzchildnode.west)
+      }
+    ]
+    child { node {\code{Any}}}
+    child { node {\code{Item}}
+      child { node {\code{Bool}}}
+      child { node {\code{Undef}}}
+      child { node {\code{Defined}}
+        child { node {\code{Value}}
+          child { node {\code{Str}}
+            child { node {\code{Num}}
+              child { node {\code{Int}}}
+            }
+            child { node {\code{ClassName}}}
+            child { node {\code{RoleName}}}
+          }
+        }
+        child[missing]{}
+        child[missing]{}
+        child[missing]{}
+        child[missing]{}
+        child { 
+          node {\code{Ref}}
+          child { node {\code{ScalarRef[?]}}}
+          child { node {\code{ArrayRef[?]}}}
+          child { node {\code{HashRef[?]}}}
+          child { node {\code{CodeRef}}}
+          child { node {\code{RegexpRef}}}
+          child { node {\code{GlobRef}}
+            child { node {\code{FileHandle}}}
+          }
+          child { node {\code{Object}}}
+        }
+      }
+      child { node {\code{Maybe[?]}}}
+    };
+  \end{tikzpicture}
+  \vfill
+  Where \code{[?]} indicates an optional parameter, e.g. \code{ArrayRef[Int]}
 \end{frame}
 
 \section{\code{MooseX::Declare}}
 
-\begin{frame}{\code{MooseX::Declare}}
+\begin{frame}{\texttt{MooseX::Declare}}
 
 \end{frame}
 
