@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usetikzlibrary{trees}
 \usepackage{url}
+\usepackage{graphicx}
 
 \usepackage{pygments}
 \usepackage{graphicx}
@@ -41,7 +42,20 @@
 \section{Introduction}
 
 \begin{frame}{Introduction}
-  
+  Everyone knows that writing Object-Oriented code in Perl is tedious, verbose and error-prone.
+
+  \begin{center}
+  \begin{tikzpicture}
+    \node [label=below:{\tiny Source: XKCD 519}] {\includegraphics[width=0.4\linewidth]{xkcd-519.png}};
+  \end{tikzpicture}
+  \end{center}
+
+  In this talk I will introduce ``Modern Perl'' ways to
+  \begin{itemize}
+    \item write classes
+    \item declare methods
+    \item solve differential equations (!)
+  \end{itemize}
 \end{frame}
 
 \section{\code{Method::Signatures}}
@@ -136,10 +150,38 @@ A simple method \ldots
   Where \code{[?]} indicates an optional parameter, e.g. \code{ArrayRef[Int]}
 \end{frame}
 
+\begin{frame}{Best Practices}
+  \begin{itemize}
+    \item \code{use namespace::autoclean} - cleans up your namespace
+    \begin{itemize}
+      \item imported symbols
+      \item Moose keywords
+    \end{itemize}
+    \item \code{make\_immutable} - speed up Moose by inlining where able
+  \end{itemize}
+  \inputcode{moose/best-practices}
+\end{frame}
+
 \section{\code{MooseX::Declare}}
 
 \begin{frame}{\texttt{MooseX::Declare}}
+  \code{MooseX::Declare} puts it all together
+  \begin{itemize}
+    \item \code{Moose}, \code{MooseX::Types} and \code{MooseX::Method::Signatures}
+    \item Best practices automagically
+    \item \code{class} and \code{role} keywords
+  \end{itemize}
+  \vfill
+  Rather than \code{MXMS}, I recommend \code{Method::Signatures::Modifiers}
+    \begin{itemize}
+      \item uses \code{Method::Signatures}
+      \item better error messages
+      \item less overhead $\implies$ much faster
+    \end{itemize}
+\end{frame}
 
+\begin{frame}{Person Revisited}
+  \inputcode{mxd/person}
 \end{frame}
 
 \section{My Research}

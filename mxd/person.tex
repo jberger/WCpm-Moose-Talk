@@ -1,0 +1,24 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{k}{use} \PY{n+nn}{MooseX::}\PY{n}{Declare}\PY{p}{;} \PY{k}{use} \PY{n+nn}{Method::}\PY{n+nn}{Signatures::}\PY{n}{Modifiers}\PY{p}{;}
+
+\PY{n}{class} \PY{n}{Person} \PY{p}{\PYZob{}}
+  \PY{n}{has} \PY{l+s}{'name'} \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Str'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'rw'}\PY{p}{,} \PY{n}{default} \PY{o}{=}\PY{o}{>} \PY{l+s}{'John Q Public'} \PY{p}{)}\PY{p}{;}
+  \PY{n}{has} \PY{l+s}{'age'}  \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Num'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'ro'}\PY{p}{,} \PY{n}{required} \PY{o}{=}\PY{o}{>} \PY{l+m+mi}{1} \PY{p}{)}\PY{p}{;}
+
+  \PY{n}{method} \PY{n}{speak} \PY{p}{(}\PY{n}{Str} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{message}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{k}{print} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{name} \PY{o}{.} \PY{l+s}{": \PYZdl{}message\PYZbs{}n"}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+  \PY{n}{method} \PY{n}{info} \PY{p}{(}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{speak}\PY{p}{(}\PY{l+s}{"I'm "} \PY{o}{.} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{age}\PY{p}{)}\PY{p}{;} 
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}
+
+\PY{n}{class} \PY{n}{Soldier} \PY{n}{extends} \PY{n}{Person} \PY{p}{\PYZob{}}
+  \PY{n}{has} \PY{l+s}{'+name'}  \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{default} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Gomer Pyle'} \PY{p}{)}\PY{p}{;}
+  \PY{n}{has} \PY{l+s}{'serial'} \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Num'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'ro'}\PY{p}{,} \PY{n}{required} \PY{o}{=}\PY{o}{>} \PY{l+m+mi}{1} \PY{p}{)}\PY{p}{;}
+
+  \PY{n}{after} \PY{n}{info} \PY{p}{(}\PY{p}{)} \PY{p}{\PYZob{}}
+    \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{speak}\PY{p}{(} \PY{l+s}{'My serial number is '} \PY{o}{.} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{serial} \PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
