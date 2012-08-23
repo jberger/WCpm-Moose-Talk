@@ -65,16 +65,6 @@
   \inputcode{moose/person}
 \end{frame}
 
-\begin{frame}{Extending}
-  \begin{itemize}
-    \item Setup parent class using \code{extends}
-    \item Modify attributes using \code{+} before name
-    \item Modify methods using \code{before}, \code{after}, \code{override}, (\code{around}, \code{augment})
-  \end{itemize}
-
-  \inputcode{moose/soldier}
-\end{frame}
-
 \begin{frame}{Types}
   \begin{tikzpicture}
   \scriptsize
@@ -124,6 +114,27 @@
   \end{tikzpicture}
   \vfill
   Where \code{[?]} indicates an optional parameter, e.g. \code{ArrayRef[Int]}
+\end{frame}
+
+\begin{frame}{Being Lazy}
+  Sometimes it helps to be \code{lazy}
+  \inputcode{moose/lazy}
+  See also \code{lazy\_build} attribute option
+\end{frame}
+
+\begin{frame}{Extending}
+  \begin{itemize}
+    \item Setup parent class using \code{extends}
+    \item Modify attributes using \code{+} before name
+    \item Modify methods using \code{before}, \code{after}, \code{override}, (\code{around}, \code{augment})
+  \end{itemize}
+
+  \inputcode{moose/soldier}
+\end{frame}
+
+\begin{frame}{Roles and Traits}
+  Sometimes its better to think about what something does rather than what it is \ldots
+  \inputcode{moose/role}
 \end{frame}
 
 \begin{frame}{Best Practices}
@@ -177,12 +188,14 @@ A simple method \ldots
     \item \code{class} and \code{role} keywords
   \end{itemize}
   \vfill
-  Rather than \code{MXMS}, I recommend \code{Method::Signatures::Modifiers}
+  \uncover<2->{
+    Rather than \code{MXMS}, I recommend \code{Method::Signatures::Modifiers}
     \begin{itemize}
       \item uses \code{Method::Signatures}
       \item better error messages
       \item less overhead $\implies$ much faster
     \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Person Revisited}

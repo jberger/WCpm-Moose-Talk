@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nb}{package} \PY{n}{Singer}\PY{p}{;}
+\PY{k}{use} \PY{n+nn}{Moose::}\PY{n}{Role}\PY{p}{;}
+
+\PY{n}{has} \PY{l+s}{'favorite\PYZus{}song'} \PY{o}{=}\PY{o}{>} \PY{p}{(} \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Str'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'ro'}\PY{p}{,} \PY{n}{default} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Stairway'} \PY{p}{)}\PY{p}{;}
+
+\PY{k}{sub }\PY{n+nf}{sing} \PY{p}{\PYZob{}}
+  \PY{k}{my} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self} \PY{o}{=} \PY{n+nb}{shift}\PY{p}{;}
+  \PY{k}{my} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{song} \PY{o}{=} \PY{n+nv}{@}\PY{n+nv}{\PYZus{}} \PY{p}{?} \PY{n+nb}{shift} \PY{p}{:} \PY{n+nv}{\PYZdl{}}\PY{n+nv}{self}\PY{o}{-}\PY{o}{>}\PY{n}{favorite\PYZus{}song}
+  \PY{k}{print} \PY{l+s}{"I'm going to sing \PYZdl{}song\PYZbs{}n"}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+
+\PY{n+nb}{package} \PY{n}{RockStar}\PY{p}{;}
+\PY{k}{use} \PY{n}{Moose}\PY{p}{;}
+\PY{n}{with} \PY{n}{Singer}\PY{p}{;}
+
+\PY{n+nb}{package} \PY{n}{main}\PY{p}{;}
+\PY{n}{RockStar}\PY{o}{-}\PY{o}{>}\PY{k}{new}\PY{o}{-}\PY{o}{>}\PY{n}{sing}\PY{p}{;}
+\end{Verbatim}

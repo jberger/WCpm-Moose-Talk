@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{has} \PY{l+s}{'expensive'} \PY{o}{=}\PY{o}{>} \PY{p}{(} 
+  \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Obj'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'rw'}\PY{p}{,} 
+  \PY{n}{lazy}    \PY{o}{=}\PY{o}{>} \PY{l+m+mi}{1}\PY{p}{,}
+  \PY{n}{builder} \PY{o}{=}\PY{o}{>} \PY{l+s}{'\PYZus{}build\PYZus{}expensive'}\PY{p}{,}
+\PY{p}{)}\PY{p}{;}
+
+\PY{k}{sub }\PY{n+nf}{\PYZus{}build\PYZus{}expensive} \PY{p}{\PYZob{}}
+  \PY{k}{return} \PY{n+nn}{Expensive::}\PY{n}{Class}\PY{o}{-}\PY{o}{>}\PY{k}{new}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+
+\PY{n}{has} \PY{l+s}{'nullable'} \PY{o}{=}\PY{o}{>} \PY{p}{(} 
+  \PY{n}{isa} \PY{o}{=}\PY{o}{>} \PY{l+s}{'Num'}\PY{p}{,} \PY{n}{is} \PY{o}{=}\PY{o}{>} \PY{l+s}{'rw'}\PY{p}{,} 
+  \PY{n}{predicate} \PY{o}{=}\PY{o}{>} \PY{l+s}{'has\PYZus{}thing'}\PY{p}{,} 
+  \PY{n}{clearer}   \PY{o}{=}\PY{o}{>} \PY{l+s}{'clear\PYZus{}thing'}\PY{p}{,}
+\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
